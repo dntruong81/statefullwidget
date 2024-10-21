@@ -37,25 +37,39 @@ class MyHomePageSate extends State<MyHomePage> {
         title: Text('Lession 4'),
       ),
       body: SafeArea(
-          child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text('So lan an nut: '),
-            Text('$counter', style: Theme.of(context).textTheme.headlineMedium),
-            Row(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Image.network(
-                    'https://api.mobifone.vn/images/subscriptiontypes/1618473491399_1608447502044_Rectangle.png',width: 100,height: 100,),
-                ElevatedButton(onPressed: (){
-                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Nut duoc bam Click Me')));
-                }, child: Text('Click Me'))
-              ],
-            )
-          ],
+          child: Padding(
+        padding: EdgeInsets.all(16.0),
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text('So lan an nut: '),
+              Text('$counter',
+                  style: Theme.of(context).textTheme.headlineMedium),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Image.network(
+                    'https://api.mobifone.vn/images/subscriptiontypes/1618473491399_1608447502044_Rectangle.png',
+                    width: 100,
+                    height: 100,
+                  ),
+                  ElevatedButton(
+                      onPressed: () {
+                        ScaffoldMessenger.of(context).showSnackBar(
+                            SnackBar(content: Text('Nut duoc bam Click Me')));
+                      },
+                      child: Text('Click Me'))
+                ],
+              ),
+              TextField(
+                  decoration: InputDecoration(
+                      border: OutlineInputBorder(),
+                      hintText: 'Enter a search term')),
+            ],
+          ),
         ),
       )),
       floatingActionButton: FloatingActionButton(
