@@ -26,6 +26,7 @@ class MyHomePage extends StatefulWidget {
 
 class MyHomePageSate extends State<MyHomePage> {
   int counter = 0;
+
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
@@ -35,13 +36,28 @@ class MyHomePageSate extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text('Lession 4'),
       ),
-      body: Center(
+      body: SafeArea(
+          child: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: [Text('So lan an nut: '),
-            Text('$counter',style: Theme.of(context).textTheme.headlineMedium)],
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Text('So lan an nut: '),
+            Text('$counter', style: Theme.of(context).textTheme.headlineMedium),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Image.network(
+                    'https://codefresher.vn/wp-content/uploads/2023/12/Banner-06-kh-Flutter.jpg',width: 100,height: 100,),
+                ElevatedButton(onPressed: (){
+                  ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Nut duoc bam')));
+                }, child: Text('Click Me'))
+              ],
+            )
+          ],
         ),
-      ),
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           setState(() {
