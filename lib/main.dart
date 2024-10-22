@@ -26,6 +26,8 @@ class MyHomePage extends StatefulWidget {
 
 class MyHomePageSate extends State<MyHomePage> {
   int counter = 0;
+  String valueTextField = '';
+  TextEditingController controller = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -51,15 +53,25 @@ class MyHomePageSate extends State<MyHomePage> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  Expanded(
+                      child: TextField(
+                          controller: controller,
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'TextField in Row'))),
+                  SizedBox(width: 10,),
                   Image.network(
                     'https://api.mobifone.vn/images/subscriptiontypes/1618473491399_1608447502044_Rectangle.png',
                     width: 100,
                     height: 100,
                   ),
+                  SizedBox(width: 10,),
                   ElevatedButton(
                       onPressed: () {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                            SnackBar(content: Text('Nut duoc bam Click Me')));
+                        {
+                          ScaffoldMessenger.of(context).showSnackBar(
+                              SnackBar(content: Text(controller.text)));
+                        }
                       },
                       child: Text('Click Me'))
                 ],
@@ -67,7 +79,10 @@ class MyHomePageSate extends State<MyHomePage> {
               TextField(
                   decoration: InputDecoration(
                       border: OutlineInputBorder(),
-                      hintText: 'Enter a search term')),
+                      hintText: 'Enter a search term'),
+                  onChanged: (text) {
+                    valueTextField = text;
+                  }),
             ],
           ),
         ),
