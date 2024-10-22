@@ -36,7 +36,7 @@ class MyHomePageSate extends State<MyHomePage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text('Lession 4'),
+        title: Text('Lession 4: UI'),
       ),
       body: SafeArea(
           child: Padding(
