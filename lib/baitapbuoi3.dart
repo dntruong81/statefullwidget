@@ -37,11 +37,10 @@ class BaiTapHomePageSate extends State<BaiTapHomePage> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-             Text(
-                  'Ket qua phep cong: $kqTinh',
-                  style:
-                      TextStyle(backgroundColor: Colors.yellow, fontSize: 20),
-                ),
+              Text(
+                'Ket qua: $kqTinh',
+                style: TextStyle(backgroundColor: Colors.yellow, fontSize: 20),
+              ),
               SizedBox(height: 50),
               Row(
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -51,7 +50,8 @@ class BaiTapHomePageSate extends State<BaiTapHomePage> {
                     onChanged: (text) {
                       so1 = text;
                     },
-                    decoration: InputDecoration(border: OutlineInputBorder()),
+                    decoration: InputDecoration(
+                        border: OutlineInputBorder(), hintText: 'Nhap so A:'),
                   )),
                   SizedBox(width: 20),
                   Expanded(
@@ -59,8 +59,9 @@ class BaiTapHomePageSate extends State<BaiTapHomePage> {
                           onChanged: (text) {
                             so2 = text;
                           },
-                          decoration:
-                              InputDecoration(border: OutlineInputBorder())))
+                          decoration: InputDecoration(
+                              border: OutlineInputBorder(),
+                              hintText: 'Nhap so B:')))
                 ],
               ),
               Row(
