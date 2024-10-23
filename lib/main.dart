@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -28,12 +30,15 @@ class MyHomePageSate extends State<MyHomePage> {
   int counter = 0;
   String valueTextField = '';
   TextEditingController controller = TextEditingController();
+  List<Color> listMau = [Colors.red,Colors.blue,Colors.green,Colors.yellow];
+  Color mau = Colors.green;
 
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
 
     return Scaffold(
+      backgroundColor: mau,
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text('Lession 4: UI'),
@@ -59,13 +64,17 @@ class MyHomePageSate extends State<MyHomePage> {
                           decoration: InputDecoration(
                               border: OutlineInputBorder(),
                               hintText: 'TextField in Row'))),
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 1,
+                  ),
                   Image.network(
                     'https://api.mobifone.vn/images/subscriptiontypes/1618473491399_1608447502044_Rectangle.png',
-                    width: 100,
+                    width: 60,
                     height: 100,
                   ),
-                  SizedBox(width: 10,),
+                  SizedBox(
+                    width: 1,
+                  ),
                   ElevatedButton(
                       onPressed: () {
                         {
@@ -73,7 +82,18 @@ class MyHomePageSate extends State<MyHomePage> {
                               SnackBar(content: Text(controller.text)));
                         }
                       },
-                      child: Text('Click Me'))
+                      child: Text('Click Me')),
+                  ElevatedButton(
+                      onPressed: () {
+                        {
+                          //Nhan vao doi mau nen
+                          mau = listMau[Random().nextInt(listMau.length)];
+                        }
+                        setState(() {
+
+                        });
+                      },
+                      child: Text('Doi mau'))
                 ],
               ),
               TextField(
