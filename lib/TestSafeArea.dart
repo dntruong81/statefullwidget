@@ -31,10 +31,10 @@ class SafeAreaHomgePageSate extends State<StatefulWidget> {
         child: Column(
           children: [
             Text('Test thu 1'),
-            Text('Test thu 2'),
+            Expanded(flex: 1,child: Text('Test thu 2')),
             Text('Test thu 3'),
             SizedBox(width: 200,height: 200,child: Image.asset('assets/hinh_test.jpg')),
-            SizedBox(width: 200,height: 200,child: Image.asset('assets/images/hinh_test_2.jpg'))
+            SizedBox(width: 200,height: 200,child: Image.asset('assets/images/hinh_test_2.jpg')),
           ],
         ),
       ),
